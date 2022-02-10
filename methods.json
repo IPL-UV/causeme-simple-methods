@@ -1,0 +1,47 @@
+{
+	"methods": {
+		"linearVAR": {
+			"method_name": "human readable method name",
+			"fun": "linear_var", 
+			"sha":"xxxxxxxxxxxxxxxxx",
+			"parameters":{
+				"maxlags":{
+					"type": "int",
+					"required": false,
+					"default": 1,
+					"constraints":{
+						"lenght": 1,
+						"positive":true
+					}
+
+				}
+			}
+		},
+		"explinearVAR": {
+			"method_name": "Exponential linear VAR", 
+			"fun": "explinear_var",
+			"sha": "yyyyyyyyyyyyyyyy",
+			"parameters":{
+				"maxlags": {
+					"type": "int",
+					"required": false,
+					"default": 1,
+					"constraints": {
+						"length": 1,
+						"positive": true
+					}
+				}
+			}
+		}
+	},
+	"main": "var", 
+	"engine": "python3.8",
+	"author":"causeme",
+	"license": "none",
+	"dependencies":{
+		"pip":{
+			"version": "21.2.4",
+			"requirements": "requirements.txt"
+		}
+	}
+}

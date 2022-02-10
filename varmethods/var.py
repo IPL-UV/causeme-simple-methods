@@ -75,11 +75,12 @@ def linear_var(data: np.ndarray,
 
     return val_matrix, p_matrix, lag_matrix
 
+
 def explinear_var(data: np.ndarray,
-               maxlags: int = 1,
-               correct_pvalues: bool = True) -> Tuple[np.ndarray,
-                                                      np.ndarray,
-                                                      np.ndarray]:
+                  maxlags: int = 1,
+                  correct_pvalues: bool = True) -> Tuple[np.ndarray,
+                                                         np.ndarray,
+                                                         np.ndarray]:
     """Fit a linear VAR model and return coefficients as edge scores,
     additionally return (corrected) pvalues and lags.
 
@@ -98,7 +99,7 @@ def explinear_var(data: np.ndarray,
     data /= data.std(axis=0)
 
     # Fit VAR model and get coefficients and p-values
-    # fit over exponential of data 
+    # fit over exponential of data
     tsamodel = tsa.var.var_model.VAR(np.exp(data))
     results = tsamodel.fit(maxlags=maxlags,  trend='n')
     pvalues = results.pvalues

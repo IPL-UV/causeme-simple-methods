@@ -1,5 +1,5 @@
 {
-	"main": "var", 
+	"main": "varmethods",
 	"engine": "python3.8",
 	"author":"causeme",
 	"license": "none",
@@ -12,7 +12,7 @@
 	"methods": {
 		"linearVAR": {
 			"method_name": "Linear VAR",
-			"fun": "linear_var", 
+			"fun": "linear_var",
 			"sha":"xxxxxxxxxxxxxxxxx",
 			"parameters":{
 				"maxlags":{
@@ -22,7 +22,7 @@
 			}
 		},
 		"explinearVAR": {
-			"method_name": "Exponential linear VAR", 
+			"method_name": "Exponential linear VAR",
 			"fun": "explinear_var",
 			"sha": "yyyyyyyyyyyyyyyy",
 			"parameters":{

@@ -1,12 +1,14 @@
-# CauseMe Template Method 
+# CauseMe Template Method
 
 
-This repository gives a fully working template or skeleton 
-for a new [CauseMe](https://causeme.uv.es) python method. 
+This repository gives a fully working template or skeleton
+for new [CauseMe](https://causeme.uv.es) python method(s).
 
 ```
+├── dev_requirements.txt
 ├── .gitignore
 ├── methods.json
+├── .pre-commit-config.yaml
 ├── README.md
 ├── requirements.txt
 ├── tests
@@ -17,10 +19,7 @@ for a new [CauseMe](https://causeme.uv.es) python method.
     └── var.py
 ```
 
-## methods.json 
+## methods.json
 
 
 ## how to implement new CausMe methods
-
-
-

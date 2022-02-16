@@ -1,12 +1,20 @@
-import numpy as np
-from varmethods import linear_var, explinear_var
-
+"""Test that methods run properly."""
 from unittest import TestCase
 
+from linearmethods import explinear_var, linear_var
 
-class TestMethodRun(TestCase):
+import numpy as np
+
+
+class TestMethodsRun(TestCase):
+    """Simple test of methods run.
+
+    Run methods on small generated data and check
+    shapes of output
+    """
 
     def test_linear_var(self):
+        """Test linear_var."""
         # Simple example: Generate some random data
         data = np.random.randn(1000, 3)
 
@@ -25,7 +33,8 @@ class TestMethodRun(TestCase):
         self.assertEqual(vals.shape[0], pvals.shape[0])
         self.assertEqual(vals.shape[0], lags.shape[0])
 
-    def test_iexplinear_var(self):
+    def test_explinear_var(self):
+        """Test explinear_var."""
         # Simple example: Generate some random data
         data = np.random.randn(1000, 3)
 

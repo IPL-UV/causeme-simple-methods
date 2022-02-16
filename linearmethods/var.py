@@ -1,6 +1,12 @@
-import numpy as np
-import statsmodels.tsa.api as tsa
+"""Vector autoregressive models VAR.
+
+Thise models are very simple.
+"""
 from typing import Tuple
+
+import numpy as np
+
+import statsmodels.tsa.api as tsa
 
 
 def linear_var(data: np.ndarray,
@@ -8,7 +14,9 @@ def linear_var(data: np.ndarray,
                correct_pvalues: bool = True) -> Tuple[np.ndarray,
                                                       np.ndarray,
                                                       np.ndarray]:
-    """Fit a linear VAR model and return coefficients as edge scores,
+    """Fit a linear VAR model.
+
+    Return coefficients as edge scores,
     additionally return (corrected) pvalues and lags.
 
     Args:
@@ -17,7 +25,6 @@ def linear_var(data: np.ndarray,
         correct_pvalues: if True
 
     """
-
     # Input data is of shape (time, variables)
     T, N = data.shape
 
@@ -81,7 +88,9 @@ def explinear_var(data: np.ndarray,
                   correct_pvalues: bool = True) -> Tuple[np.ndarray,
                                                          np.ndarray,
                                                          np.ndarray]:
-    """Fit a linear VAR model and return coefficients as edge scores,
+    """Fit a linear VAR model to exp(data).
+
+    Return coefficients as edge scores,
     additionally return (corrected) pvalues and lags.
 
     Args:
@@ -90,7 +99,6 @@ def explinear_var(data: np.ndarray,
         correct_pvalues: if True
 
     """
-
     # Input data is of shape (time, variables)
     T, N = data.shape
 

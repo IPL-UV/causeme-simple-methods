@@ -1,6 +1,6 @@
 
 """
-varmtehods, example causeme python methods.
+Causeme simple methods.
 
 Explicitly export method functions.
 """

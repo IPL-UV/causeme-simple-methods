@@ -1,7 +1,7 @@
 """Test that methods run properly."""
 from unittest import TestCase
 
-from linearmethods import explinear_var, linear_var
+from causemesplmthds import granger2d, linear_var
 
 import numpy as np
 
@@ -16,7 +16,7 @@ class TestMethodsRun(TestCase):
     def test_linear_var(self):
         """Test linear_var."""
         # Simple example: Generate some random data
-        data = np.random.randn(1000, 3)
+        data = np.random.randn(10000, 3)
 
         # Create a causal link 0 --> 1 at lag 2
         data[2:, 1] -= 0.5*data[:-2, 0]
@@ -33,16 +33,16 @@ class TestMethodsRun(TestCase):
         self.assertEqual(vals.shape[0], pvals.shape[0])
         self.assertEqual(vals.shape[0], lags.shape[0])
 
-    def test_explinear_var(self):
-        """Test explinear_var."""
+    def test_granger2d(self):
+        """Test granger2d."""
         # Simple example: Generate some random data
-        data = np.random.randn(1000, 3)
+        data = np.random.randn(10000, 3)
 
         # Create a causal link 0 --> 1 at lag 2
         data[2:, 1] -= 0.5*data[:-2, 0]
 
         # Estimate VAR model
-        vals, pvals, lags = explinear_var(data, maxlags=3)
+        vals, pvals, lags = granger2d(data, maxlags=3)
 
         self.assertIsInstance(vals, np.ndarray)
         self.assertIsInstance(pvals, np.ndarray)

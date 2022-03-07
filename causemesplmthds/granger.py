@@ -2,7 +2,15 @@
 
 Simple implementations of Granger causality models.
 """
-from typing import Literal, Tuple
+try:
+    from typing import Literal, Tuple
+    testtype = Literal['params_ftest',
+                       'ssr_ftest',
+                       'ssr_chi2test',
+                       'lrtest']
+except Exception as e:
+    from typing import Tuple
+    testtype = str
 
 import numpy as np
 
@@ -11,10 +19,7 @@ from statsmodels.tsa.stattools import grangercausalitytests
 
 def granger2d(data: np.ndarray,
               maxlags: int = 1,
-              test: Literal['params_ftest',
-                            'ssr_ftest',
-                            'ssr_chi2test',
-                            'lrtest'] = 'ssr_ftest') -> Tuple[np.ndarray,
+              test: testtype  = 'ssr_ftest') -> Tuple[np.ndarray,
                                                               np.ndarray,
                                                               np.ndarray]:
     """Perform pairwise Granger causality tests.

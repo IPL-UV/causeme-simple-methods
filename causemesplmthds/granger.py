@@ -2,7 +2,7 @@
 
 Simple implementations of Granger causality models.
 """
-from typing import Tuple
+from typing import Literal, Tuple
 
 import numpy as np
 
@@ -11,13 +11,15 @@ from statsmodels.tsa.stattools import grangercausalitytests
 
 def granger2d(data: np.ndarray,
               maxlags: int = 1,
-              test: str = 'ssr_ftest') -> Tuple[np.ndarray,
-                                                np.ndarray,
-                                                np.ndarray]:
+              test: Literal['params_ftest',
+                            'ssr_ftest',
+                            'ssr_chi2test',
+                            'lrtest'] = 'ssr_ftest') -> Tuple[np.ndarray,
+                                                              np.ndarray,
+                                                              np.ndarray]:
     """Perform pairwise Granger causality tests.
 
-    It uses (1-pvalues) as scores, the same pvalues are also returned
-    as pvalue matrix.
+    It uses test statistics as scores, pvalues are also returned.
     Args:
         data: matrix of observations (t x n)
         maxlags: positive integer, the maximum lag considered in the VAR model.
@@ -25,6 +27,9 @@ def granger2d(data: np.ndarray,
 
     code is adapted from https://github.com/cmu-phil/causal-learn
     """
+    # check maxlags
+    assert maxlags > 0
+
     # Input data is of shape (time, variables)
     T, N = data.shape
 
